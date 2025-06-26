@@ -13,6 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'verde-escuro': '#0C9897',
+        'verde-botao-trans': '#066B6A',
+        'verde-claro': '#8FDFDC',
+        'branco': '#FFFFFF',
+        'preto': '#000000',
+      },
+      fontFamily: {
+        'krub': ['Krub', 'sans-serif'],
+        'dm-sans': ['DM Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],
