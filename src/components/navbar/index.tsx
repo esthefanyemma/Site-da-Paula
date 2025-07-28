@@ -10,6 +10,7 @@ export default function Navbar() {
             <nav className="flex flex-row gap-12 text-white text-xl font-krub font-semibold items-center">
                 <Link className="transition ease-in-out duration-300 hover:scale-110" href="/">Home</Link>
                 <Link className="transition ease-in-out duration-300 hover:scale-110" href="/sobre">Sobre Mim</Link>
+                <Link className="transition ease-in-out duration-300 hover:scale-110" href="/agendamento">Agendamento</Link>
                 <Link className="transition ease-in-out duration-300 hover:scale-110" href="/contato">Contato</Link>
             </nav>
         </header>
