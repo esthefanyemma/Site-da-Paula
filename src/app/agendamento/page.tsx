@@ -61,18 +61,18 @@ export default function AgendamentoPage() {
     const isPast = isBefore(date, new Date()) && !isToday(date);
     const isCurrentMonth = isSameMonth(date, currentDate);
 
-    let baseClass = "w-12 h-12 flex items-center justify-center rounded-lg text-sm font-medium cursor-pointer transition-colors";
+    let baseClass = "w-full h-16 border border-dashed flex items-center justify-center text-sm font-medium cursor-pointer transition-colors";
     
     if (!isCurrentMonth) {
-      return `${baseClass} text-gray-300`;
+      return `${baseClass} text-gray-300 border-gray-100`;
     }
     
     if (isPast) {
-      return `${baseClass} text-gray-400 cursor-not-allowed`;
+      return `${baseClass} text-gray-400 cursor-not-allowed border-gray-400`;
     }
     
     if (isToday(date)) {
-      baseClass += " ring-2 ring-blue-500";
+      baseClass += " border-blue-500";
     }
     
     if (dayAvailability) {
@@ -112,13 +112,13 @@ export default function AgendamentoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50">
       <Navbar />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Agendamento de Consultas
+      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+        <div className="max-w-xl mx-auto">
+          <h1 className="text-3xl font-bold font-krub text-gray-900 mb-8 text-center">
+            Agende Aula Diagnóstico
           </h1>
           
           <div className="bg-white rounded-lg shadow-lg p-6">
@@ -148,7 +148,7 @@ export default function AgendamentoPage() {
             </div>
 
             {/* Dias da semana */}
-            <div className="grid grid-cols-7 gap-1 mb-4">
+            <div className="grid grid-cols-7 gap-0 mb-4">
               {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map(day => (
                 <div key={day} className="h-12 flex items-center justify-center text-sm font-medium text-gray-500">
                   {day}
@@ -162,7 +162,7 @@ export default function AgendamentoPage() {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
               </div>
             ) : (
-              <div className="grid grid-cols-7 gap-1">
+              <div className="grid grid-cols-7 gap-0">
                 {daysInMonth.map((date, index) => {
                   const dayOfWeek = date.getDay();
                   const startOffset = index === 0 ? dayOfWeek : 0;
@@ -196,15 +196,6 @@ export default function AgendamentoPage() {
                 <span>Indisponível</span>
               </div>
             </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-            >
-              Voltar ao Início
-            </Link>
           </div>
         </div>
       </div>
