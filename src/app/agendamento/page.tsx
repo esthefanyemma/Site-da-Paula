@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isBefore } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import Navbar from '@/components/navbar';
 import Link from 'next/link';
 
 interface DayAvailability {
@@ -112,9 +111,8 @@ export default function AgendamentoPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-50">
-      <Navbar />
-      
+    <div className="min-h-screen w-full bg-gray-50 pt-[7.8rem]">
+    
       <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
         <div className="max-w-xl mx-auto">
           <h1 className="text-3xl font-bold font-krub text-gray-900 mb-8 text-center">

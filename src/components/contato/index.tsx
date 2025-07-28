@@ -47,7 +47,7 @@ export default function Contato () {
     };
 
     return (
-        <section className="bg-[url(/assets/fundo.png)] bg-cover flex flex-col items-center justify-center px-4 md:px-36 py-20 gap-20">
+        <section id="contato" className="bg-[url(/assets/fundo.png)] bg-cover flex flex-col items-center justify-center px-4 md:px-36 py-20 gap-20">
             <h1 className="text-3xl md:text-5xl font-krub font-bold text-preto text-center">
                 Entre em Contato
             </h1>

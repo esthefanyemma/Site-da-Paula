@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 export default function HeroSection() {
     return (
-        <section className="flex flex-row items-center justify-between bg-verde-claro">
+        <section id="home" className="flex flex-row items-center justify-between bg-verde-claro pt-24">
             <Image src="/assets/fotopaulacircular.png" alt="foto" width={200} height={200} className='w-5/12 p-28' />
             <div className="flex flex-col items-start justify-center px-36 gap-8 w-7/12 border-l border-verde-escuro/50">
                 <h1 className="text-5xl font-krub font-bold text-preto">

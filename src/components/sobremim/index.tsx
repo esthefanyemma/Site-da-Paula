@@ -3,7 +3,7 @@ import Card from "../Card";
 
 export default function SobreMim () {
     return (
-        <section className="flex flex-col items-center justify-center px-36 pt-8 pb-16 gap-20 bg-gradient-to-t from-[#5AC2C3] to-verde-claro text-white">
+        <section id="sobre" className="flex flex-col items-center justify-center px-36 pt-8 pb-16 gap-20 bg-gradient-to-t from-[#5AC2C3] to-verde-claro text-white">
             <div className="flex flex-col items-center justify-center gap-8 w-full bg-white/50 p-12 rounded-lg shadow-lg">
                 <div className="flex flex-row items-center justify-between gap-8 w-full">
                     <div className="flex flex-col items-start justify-center gap-8">

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { format, parse } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import Navbar from '@/components/navbar';
 
 interface TimeSlot {
   time: string;
@@ -115,17 +114,27 @@ export default function HorariosPage() {
 
   if (!selectedDate) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-red-600">Data inválida</h1>
-            <button
-              onClick={() => router.push('/agendamento')}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Voltar ao Calendário
-            </button>
+      <div className="min-h-screen w-full bg-gray-50 pt-24">
+        <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+          <div className="max-w-lg mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100">
+              <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.314 15.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+              </div>
+              <h1 className="text-2xl font-bold font-krub text-gray-900 mb-3">Data Inválida</h1>
+              <p className="text-gray-600 font-dm-sans mb-8">A data selecionada não é válida. Por favor, retorne ao calendário e selecione uma data disponível.</p>
+              <button
+                onClick={() => router.push('/agendamento')}
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-verde-escuro to-verde-botao-trans text-white font-bold font-dm-sans rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Voltar ao Calendário
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -133,15 +142,14 @@ export default function HorariosPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
+    <div className="min-h-screen w-full bg-gray-50 pt-24">
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-6">
+      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+        <div className="max-w-5xl mx-auto">
+          <div className="mt-4">
             <button
               onClick={() => router.push('/agendamento')}
-              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              className="inline-flex items-center px-6 py-3 bg-white border-2 border-verde-escuro text-verde-escuro hover:bg-verde-escuro hover:text-white font-semibold font-dm-sans rounded-xl transition-all duration-200 transform hover:scale-105 shadow-md"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -150,37 +158,42 @@ export default function HorariosPage() {
             </button>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">
-            Selecionar Horário
-          </h1>
-          <p className="text-gray-600 text-center mb-8">
-            {format(selectedDate, "EEEE, d 'de' MMMM 'de' yyyy", { locale: ptBR })}
-          </p>
+          <div className="text-center mb-10">
+            <h1 className="text-4xl font-bold font-krub text-gray-900 mb-3">
+              Selecionar Horário
+            </h1>
+            <p className="text-lg text-gray-700 font-dm-sans">
+              {format(selectedDate, "EEEE, d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Seleção de Horários */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Horários Disponíveis
-              </h2>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-3 h-3 bg-verde-escuro rounded-full mr-3"></div>
+                <h2 className="text-2xl font-bold font-krub text-gray-900">
+                  Horários Disponíveis
+                </h2>
+              </div>
               
               {loading ? (
-                <div className="flex items-center justify-center h-32">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                <div className="flex items-center justify-center h-48">
+                  <div className="animate-spin rounded-full h-12 w-12 border-4 border-verde-claro border-t-verde-escuro"></div>
                 </div>
               ) : (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4">
                   {timeSlots.map((slot) => (
                     <button
                       key={slot.time}
                       onClick={() => slot.available && setSelectedTime(slot.time)}
                       disabled={!slot.available}
-                      className={`p-3 rounded-lg text-sm font-medium transition-colors ${
+                      className={`p-4 rounded-xl text-sm font-semibold font-dm-sans transition-all duration-200 transform hover:scale-105 ${
                         slot.available
                           ? selectedTime === slot.time
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-green-100 text-green-800 hover:bg-green-200'
-                          : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                            ? 'bg-verde-escuro text-white shadow-lg ring-2 ring-verde-claro'
+                            : 'bg-verde-claro text-verde-botao-trans hover:bg-verde-escuro hover:text-white shadow-md'
+                          : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
                       }`}
                     >
                       {slot.time}
@@ -188,17 +201,31 @@ export default function HorariosPage() {
                   ))}
                 </div>
               )}
+              
+              {!loading && timeSlots.length === 0 && (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-500 font-dm-sans">Nenhum horário disponível para esta data</p>
+                </div>
+              )}
             </div>
 
             {/* Formulário */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Seus Dados
-              </h2>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="flex items-center mb-6">
+                <div className="w-3 h-3 bg-verde-escuro rounded-full mr-3"></div>
+                <h2 className="text-2xl font-bold font-krub text-gray-900">
+                  Seus Dados
+                </h2>
+              </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold font-dm-sans text-gray-700 mb-2">
                     Nome Completo *
                   </label>
                   <input
@@ -207,12 +234,13 @@ export default function HorariosPage() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans"
+                    placeholder="Digite seu nome completo"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold font-dm-sans text-gray-700 mb-2">
                     E-mail *
                   </label>
                   <input
@@ -221,12 +249,13 @@ export default function HorariosPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans"
+                    placeholder="seu.email@exemplo.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold font-dm-sans text-gray-700 mb-2">
                     Telefone *
                   </label>
                   <input
@@ -235,51 +264,146 @@ export default function HorariosPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans"
+                    placeholder="(11) 99999-9999"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Tipo de Serviço *
+                  <label className="block text-sm font-semibold font-dm-sans text-gray-700 mb-2">
+                    Tipo de Aula *
                   </label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans"
                   >
-                    <option value="">Selecione um serviço</option>
-                    <option value="consulta">Consulta</option>
-                    <option value="retorno">Retorno</option>
-                    <option value="avaliacao">Avaliação</option>
-                    <option value="outros">Outros</option>
+                    <option value="">Selecione o tipo de aula</option>
+                    <option value="diagnostico">Aula Diagnóstico</option>
+                    <option value="regular">Aula Regular</option>
+                    <option value="intensivo">Aula Intensiva</option>
+                    <option value="conversacao">Conversação</option>
+                    <option value="preparatorio">Preparatório para Exames</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-semibold font-dm-sans text-gray-700 mb-2">
                     Observações
                   </label>
                   <textarea
                     name="notes"
                     value={formData.notes}
                     onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Alguma informação adicional..."
+                    rows={4}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans resize-none"
+                    placeholder="Conte-nos um pouco sobre seu nível de inglês, objetivos ou qualquer informação que considere importante..."
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={!selectedTime || submitting}
-                  className="w-full py-3 px-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                  className="w-full py-4 px-6 bg-gradient-to-r from-verde-escuro to-verde-botao-trans text-white font-bold font-dm-sans text-lg rounded-xl hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 disabled:transform-none"
                 >
-                  {submitting ? 'Agendando...' : 'Confirmar Agendamento'}
+                  {submitting ? (
+                    <div className="flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
+                      Agendando...
+                    </div>
+                  ) : (
+                    'Confirmar Agendamento'
+                  )}
                 </button>
               </form>
+            </div>
+          </div>
+          
+          {/* Informações Adicionais */}
+          <div className="mt-8 bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div className="flex items-center mb-6">
+              <div className="w-3 h-3 bg-verde-escuro rounded-full mr-3"></div>
+              <h3 className="text-xl font-bold font-krub text-gray-900">Informações Importantes</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Duração da Aula</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">60 minutos de aula personalizada</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Modalidade</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">Online via Google Meet ou presencial</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Material Incluso</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">Material didático personalizado para seu nível</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Confirmação</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">Você receberá uma confirmação por email e WhatsApp</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Cancelamento</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">Cancele com até 24h de antecedência</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-6 h-6 bg-verde-claro rounded-full flex items-center justify-center mr-3 mt-1">
+                    <svg className="w-3 h-3 text-verde-botao-trans" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold font-dm-sans text-gray-900">Suporte</h4>
+                    <p className="text-gray-600 font-dm-sans text-sm">Atendimento personalizado durante todo o processo</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
