@@ -60,7 +60,7 @@ export default function AgendamentoPage() {
     const isPast = isBefore(date, new Date()) && !isToday(date);
     const isCurrentMonth = isSameMonth(date, currentDate);
 
-    let baseClass = "w-full h-16 lg:h-20 rounded-2xl flex flex-col items-center justify-center text-sm lg:text-base font-bold font-krub cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg border-2";
+    let baseClass = "w-full aspect-square sm:h-16 lg:h-20 sm:aspect-auto rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-xs sm:text-sm lg:text-base font-bold font-krub cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg border-2";
     
     if (!isCurrentMonth) {
       return `${baseClass} text-gray-300 border-gray-100 bg-gray-50/50`;
@@ -112,56 +112,56 @@ export default function AgendamentoPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-verde-claro pt-24 pb-0">
+    <div className="min-h-screen w-full bg-verde-claro pt-20 sm:pt-24 pb-0">
     
-      <div className="w-full px-4 py-8 min-h-[calc(100vh-6rem)]">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 min-h-[calc(100vh-6rem)]">
         <div className="max-w-4xl mx-auto">
           {/* Header moderno */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold font-krub text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-krub text-gray-900 mb-3 sm:mb-4 px-4">
               Agende sua <span className="text-verde-escuro">Aula Diagnóstico</span>
             </h1>
-            <p className="text-lg text-gray-600 font-dm-sans max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 font-dm-sans max-w-2xl mx-auto px-4">
               Escolha o melhor dia para sua primeira aula. Dias em verde têm horários disponíveis.
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-verde-escuro to-verde-claro mx-auto rounded-full mt-6"></div>
+            <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-verde-escuro to-verde-claro mx-auto rounded-full mt-4 sm:mt-6"></div>
           </div>
           
-          <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-8 lg:p-10">
+          <div className="bg-white/80 backdrop-blur-lg rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 p-4 sm:p-6 lg:p-8 xl:p-10">
             {/* Cabeçalho do calendário */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6 sm:mb-8">
               <button
                 onClick={() => navigateMonth('prev')}
-                className="group p-3 rounded-2xl bg-gradient-to-r from-verde-claro to-verde-escuro hover:from-verde-escuro hover:to-verde-claro transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-105"
+                className="group p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-verde-claro to-verde-escuro hover:from-verde-escuro hover:to-verde-claro transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-105"
               >
-                <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 sm:w-6 h-5 sm:h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               
-              <div className="text-center">
-                <h2 className="text-2xl lg:text-3xl font-bold font-krub text-gray-900 capitalize">
+              <div className="text-center flex-1 mx-4">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-krub text-gray-900 capitalize">
                   {format(currentDate, 'MMMM yyyy', { locale: ptBR })}
                 </h2>
-                <div className="text-sm text-gray-500 font-dm-sans mt-1">
+                <div className="text-xs sm:text-sm text-gray-500 font-dm-sans mt-1">
                   Selecione uma data disponível
                 </div>
               </div>
               
               <button
                 onClick={() => navigateMonth('next')}
-                className="group p-3 rounded-2xl bg-gradient-to-r from-verde-claro to-verde-escuro hover:from-verde-escuro hover:to-verde-claro transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-105"
+                className="group p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-verde-claro to-verde-escuro hover:from-verde-escuro hover:to-verde-claro transition-all duration-300 text-white shadow-lg hover:shadow-xl hover:scale-105"
               >
-                <svg className="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 sm:w-6 h-5 sm:h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
 
             {/* Dias da semana */}
-            <div className="grid grid-cols-7 gap-2 mb-6">
+            <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-4 sm:mb-6">
               {['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map(day => (
-                <div key={day} className="h-12 flex items-center justify-center text-sm font-bold font-krub text-gray-700 bg-gray-50 rounded-xl">
+                <div key={day} className="h-8 sm:h-10 lg:h-12 flex items-center justify-center text-xs sm:text-sm font-bold font-krub text-gray-700 bg-gray-50 rounded-lg sm:rounded-xl">
                   {day}
                 </div>
               ))}
@@ -169,15 +169,15 @@ export default function AgendamentoPage() {
 
             {/* Calendário */}
             {loading ? (
-              <div className="flex flex-col items-center justify-center h-80 bg-gray-50/50 rounded-2xl">
+              <div className="flex flex-col items-center justify-center h-64 sm:h-80 bg-gray-50/50 rounded-xl sm:rounded-2xl">
                 <div className="relative">
-                  <div className="animate-spin rounded-full h-16 w-16 border-4 border-verde-claro border-t-verde-escuro"></div>
-                  <div className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-verde-claro animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
+                  <div className="animate-spin rounded-full h-12 sm:h-16 w-12 sm:w-16 border-4 border-verde-claro border-t-verde-escuro"></div>
+                  <div className="absolute inset-0 rounded-full h-12 sm:h-16 w-12 sm:w-16 border-4 border-transparent border-t-verde-claro animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
                 </div>
-                <p className="text-gray-600 font-dm-sans mt-4 text-lg">Carregando disponibilidade...</p>
+                <p className="text-gray-600 font-dm-sans mt-4 text-base sm:text-lg">Carregando disponibilidade...</p>
               </div>
             ) : (
-              <div className="grid grid-cols-7 gap-3 mb-8">
+              <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 mb-6 sm:mb-8">
                 {daysInMonth.map((date, index) => {
                   const dayOfWeek = date.getDay();
                   const dayAvailability = getDayAvailability(date);
@@ -188,11 +188,11 @@ export default function AgendamentoPage() {
                         className={getDayClass(date)}
                         onClick={() => handleDayClick(date)}
                       >
-                        <span className="text-lg lg:text-xl font-bold">
+                        <span className="text-sm sm:text-lg lg:text-xl font-bold">
                           {format(date, 'd')}
                         </span>
                         {dayAvailability && dayAvailability.hasAvailableSlots && (
-                          <span className="text-xs text-green-600 font-dm-sans mt-1">
+                          <span className="text-xs text-green-600 font-dm-sans mt-1 hidden sm:block">
                             {dayAvailability.totalSlots - dayAvailability.bookedSlots} vagas
                           </span>
                         )}
@@ -204,18 +204,24 @@ export default function AgendamentoPage() {
             )}
 
             {/* Legenda moderna */}
-            <div className="bg-gray-50/50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-lg font-bold font-krub text-gray-900 mb-4 text-center">
+            <div className="bg-gray-50/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-100">
+              <h3 className="text-base sm:text-lg font-bold font-krub text-gray-900 mb-3 sm:mb-4 text-center">
                 Legenda
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-center justify-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-green-100">
-                  <div className="w-6 h-6 bg-gradient-to-br from-green-100 to-green-200 rounded-lg border-2 border-green-300"></div>
-                  <span className="font-dm-sans font-medium text-gray-700">Disponível</span>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white rounded-lg sm:rounded-xl shadow-sm border border-green-100">
+                  <div className="w-4 h-4 bg-gradient-to-br from-green-100 to-green-200 rounded-md border-2 border-green-300 flex-shrink-0"></div>
+                  <span className="font-dm-sans font-medium text-gray-700 text-xs sm:text-base">
+                    <span className="sm:hidden">Livre</span>
+                    <span className="hidden sm:inline">Disponível</span>
+                  </span>
                 </div>
-                <div className="flex items-center justify-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
-                  <div className="w-6 h-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border-2 border-gray-200"></div>
-                  <span className="font-dm-sans font-medium text-gray-700">Indisponível</span>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white rounded-lg sm:rounded-xl shadow-sm border border-gray-100">
+                  <div className="w-4 h-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-md border-2 border-gray-200 flex-shrink-0"></div>
+                  <span className="font-dm-sans font-medium text-gray-700 text-xs sm:text-base">
+                    <span className="sm:hidden">Ocupado</span>
+                    <span className="hidden sm:inline">Indisponível</span>
+                  </span>
                 </div>
               </div>
             </div>
