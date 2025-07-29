@@ -35,13 +35,27 @@ export default function HorariosPage() {
   });
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     if (dateParam) {
-      const date = parse(dateParam, 'yyyy-MM-dd', new Date());
-      setSelectedDate(date);
-      fetchTimeSlots(dateParam);
+      try {
+        const date = parse(dateParam, 'yyyy-MM-dd', new Date());
+        // Verificar se a data é válida
+        if (isNaN(date.getTime())) {
+          setHasError(true);
+        } else {
+          setSelectedDate(date);
+          fetchTimeSlots(dateParam);
+        }
+      } catch (error) {
+        setHasError(true);
+      }
+    } else {
+      setHasError(true);
     }
+    setInitialLoading(false);
   }, [dateParam]);
 
   const fetchTimeSlots = async (date: string) => {
@@ -112,7 +126,30 @@ export default function HorariosPage() {
     }
   };
 
-  if (!selectedDate) {
+  // Tela de carregamento inicial
+  if (initialLoading) {
+    return (
+      <div className="min-h-screen w-full bg-gray-50 pt-20 sm:pt-24 pb-0">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-[url(/assets/fundo.png)] min-h-[calc(100vh-6rem)]">
+          <div className="max-w-lg mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center border border-gray-100">
+              <div className="w-16 sm:w-20 h-16 sm:h-20 bg-verde-claro rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div className="relative">
+                  <div className="animate-spin rounded-full h-8 sm:h-10 w-8 sm:w-10 border-4 border-verde-escuro border-t-transparent"></div>
+                  <div className="absolute inset-0 rounded-full h-8 sm:h-10 w-8 sm:w-10 border-4 border-transparent border-t-verde-claro animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
+                </div>
+              </div>
+              <h1 className="text-xl sm:text-2xl font-bold font-krub text-gray-900 mb-3">Carregando...</h1>
+              <p className="text-sm sm:text-base text-gray-600 font-dm-sans mb-6 sm:mb-8">Verificando disponibilidade da data selecionada...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Tela de erro para data inválida
+  if (hasError || !selectedDate) {
     return (
       <div className="min-h-screen w-full bg-gray-50 pt-20 sm:pt-24 pb-0">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 bg-[url(/assets/fundo.png)] min-h-[calc(100vh-6rem)]">

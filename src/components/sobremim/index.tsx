@@ -41,7 +41,7 @@ export default function SobreMim () {
                         {/* Estatísticas */}
                         <div className="grid grid-cols-2 gap-8 py-8">
                             <div className="text-center">
-                                <div className="text-4xl font-bold font-krub text-verde-escuro mb-2">500+</div>
+                                <div className="text-4xl font-bold font-krub text-verde-escuro mb-2">100+</div>
                                 <div className="text-sm font-dm-sans text-gray-600 uppercase tracking-wide">Alunos Formados</div>
                             </div>
                             <div className="text-center">

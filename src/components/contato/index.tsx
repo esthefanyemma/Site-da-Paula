@@ -39,7 +39,7 @@ export default function Contato () {
 ${formData.mensagem}`;
 
             // Número do WhatsApp da Paula (substitua pelo número real)
-            const phoneNumber = '553288429269'; // Formato: código do país + DDD + número
+            const phoneNumber = '5521984372721'; // Formato: código do país + DDD + número
             
             // Codificando a mensagem para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -221,7 +221,7 @@ ${formData.mensagem}`;
                                     </svg>
                                 </div>
                                 <h3 className="font-semibold text-gray-900 mb-1 text-sm lg:text-base">WhatsApp</h3>
-                                <p className="text-gray-600 text-sm lg:text-base">(11) 99999-9999</p>
+                                <p className="text-gray-600 text-sm lg:text-base">+55 (21) 98437-2721</p>
                             </div>
 
                             <div className="flex flex-col items-center">

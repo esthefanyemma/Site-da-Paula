@@ -77,7 +77,7 @@ export default function HeroSection() {
                         {/* Estatísticas rápidas */}
                         <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 py-4">
                             <div className="text-center">
-                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">500+</div>
+                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">100+</div>
                                 <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Alunos satisfeitos</div>
                             </div>
                             <div className="text-center">
@@ -85,8 +85,8 @@ export default function HeroSection() {
                                 <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Anos de experiência</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">98%</div>
-                                <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Taxa de aprovação</div>
+                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">95%</div>
+                                <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Alunos satisfeitos</div>
                             </div>
                         </div>
 
