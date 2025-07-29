@@ -78,7 +78,8 @@ export default function AgendamentoPage() {
       if (dayAvailability.hasAvailableSlots) {
         return `${baseClass} bg-gradient-to-br from-green-100 to-green-200 text-green-800 border-green-300 hover:from-green-200 hover:to-green-300 hover:border-green-400 shadow-green-100`;
       } else {
-        return `${baseClass} bg-gradient-to-br from-red-100 to-red-200 text-red-800 border-red-300 cursor-not-allowed opacity-75`;
+        // Dias lotados agora ficam indisponíveis (cinza) em vez de vermelhos
+        return `${baseClass} bg-gradient-to-br from-gray-50 to-gray-100 text-gray-600 border-gray-200 cursor-not-allowed opacity-75`;
       }
     }
     
@@ -207,14 +208,10 @@ export default function AgendamentoPage() {
               <h3 className="text-lg font-bold font-krub text-gray-900 mb-4 text-center">
                 Legenda
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-center justify-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-green-100">
                   <div className="w-6 h-6 bg-gradient-to-br from-green-100 to-green-200 rounded-lg border-2 border-green-300"></div>
                   <span className="font-dm-sans font-medium text-gray-700">Disponível</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-red-100">
-                  <div className="w-6 h-6 bg-gradient-to-br from-red-100 to-red-200 rounded-lg border-2 border-red-300"></div>
-                  <span className="font-dm-sans font-medium text-gray-700">Lotado</span>
                 </div>
                 <div className="flex items-center justify-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
                   <div className="w-6 h-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border-2 border-gray-200"></div>
