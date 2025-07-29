@@ -111,9 +111,9 @@ export default function AgendamentoPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 pt-[7.8rem]">
+    <div className="min-h-screen w-full bg-gray-50 pt-24 pb-0">
     
-      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)] min-h-[calc(100vh-6rem)]">
         <div className="max-w-xl mx-auto">
           <h1 className="text-3xl font-bold font-krub text-gray-900 mb-8 text-center">
             Agende Aula Diagnóstico

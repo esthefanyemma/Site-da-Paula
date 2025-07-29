@@ -31,6 +31,11 @@ section[id] {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -44,6 +49,10 @@ section[id] {
   animation: gradient-shift 3s ease infinite;
 }
 
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 /* Efeito de texto gradiente animado */
 .gradient-text-animated {
   background: linear-gradient(-45deg, #0C9897, #066B6A, #8FDFDC, #0C9897);
@@ -52,4 +61,27 @@ section[id] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 3s ease infinite;
+}
+
+/* Efeito de glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animação de entrada suave para navbar mobile */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.3s ease-out;
 }

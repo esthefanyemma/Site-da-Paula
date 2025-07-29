@@ -114,8 +114,8 @@ export default function HorariosPage() {
 
   if (!selectedDate) {
     return (
-      <div className="min-h-screen w-full bg-gray-50 pt-24">
-        <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+      <div className="min-h-screen w-full bg-gray-50 pt-24 pb-0">
+        <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)] min-h-[calc(100vh-6rem)]">
           <div className="max-w-lg mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100">
               <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -142,9 +142,9 @@ export default function HorariosPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gray-50 pt-24">
+    <div className="min-h-screen w-full bg-gray-50 pt-20 pb-0">
       
-      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)]">
+      <div className="w-full px-4 py-8 bg-[url(/assets/fundo.png)] min-h-[calc(100vh-5rem)]">
         <div className="max-w-5xl mx-auto">
           <div className="mt-4">
             <button

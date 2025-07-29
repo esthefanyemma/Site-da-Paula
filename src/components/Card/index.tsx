@@ -1,17 +1,22 @@
-type CardProps = {
-  titulo: string;
-  texto: string;
-};
+import React from 'react';
 
-export default function Card({ titulo, texto }: CardProps) {
+interface CardProps {
+    titulo: string;
+    texto: string;
+    icon?: React.ReactNode;
+    className?: string;
+}
+
+export default function Card({ titulo, texto, icon, className = "" }: CardProps) {
     return (
-        <div className="bg-verde-escuro flex flex-col items-center gap-4 p-6 rounded-lg shadow-lg w-80">
-            <h1 className="font-krub text-preto text-3xl font-bold">
-                {titulo}
-            </h1>
-            <p className="font-krub text-center text-preto text-xl">
-                {texto}
-            </p>
+        <div className={`group bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 ${className}`}>
+            {icon && (
+                <div className="w-16 h-16 bg-gradient-to-br from-verde-claro to-verde-escuro rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {icon}
+                </div>
+            )}
+            <h3 className="text-2xl font-krub font-bold text-gray-900 mb-4">{titulo}</h3>
+            <p className="text-gray-600 font-dm-sans leading-relaxed">{texto}</p>
         </div>
-    )
+    );
 }

@@ -137,7 +137,7 @@ export default function HeroSection() {
                             {/* Imagem principal */}
                             <div className="relative z-10 p-4">
                                 <Image 
-                                    src="/assets/fotopaula.png" 
+                                    src="/assets/fotopaulacircular.png" 
                                     alt="Paula - Professora de Inglês" 
                                     width={400} 
                                     height={400} 
