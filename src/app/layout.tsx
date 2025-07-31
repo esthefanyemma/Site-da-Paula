@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Paula - Ensino de Inglês",
   description: "Ensino de inglês personalizado há mais de 15 anos. Agende sua aula e transforme seu aprendizado com metodologia única.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
