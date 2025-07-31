@@ -319,11 +319,7 @@ export default function HorariosPage() {
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-verde-claro focus:border-verde-escuro transition-colors font-dm-sans text-sm sm:text-base"
                   >
                     <option value="">Selecione o tipo de aula</option>
-                    <option value="diagnostico">Aula Diagnóstico</option>
-                    <option value="regular">Aula Regular</option>
-                    <option value="intensivo">Aula Intensiva</option>
-                    <option value="conversacao">Conversação</option>
-                    <option value="preparatorio">Preparatório para Exames</option>
+                    <option value="diagnostico">Aula de Nivelamento</option>
                   </select>
                 </div>
 

@@ -38,7 +38,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-verde-claro mb-4 text-sm leading-relaxed">
-                            Ensino de inglês personalizado há mais de 15 anos. 
+                            Ensino de inglês personalizado há mais de 17 anos. 
                             Transformando vidas através do aprendizado de idiomas com metodologia única e atenção individual.
                         </p>
                         <div className="flex space-x-4">
