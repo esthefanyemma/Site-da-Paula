@@ -50,7 +50,7 @@ export default function HeroSection() {
                         <div className="hidden lg:inline-flex items-center px-3 sm:px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
                             <div className="w-2 h-2 bg-verde-escuro rounded-full mr-2 sm:mr-3 animate-pulse"></div>
                             <span className="text-verde-botao-trans font-dm-sans font-semibold text-xs sm:text-sm">
-                                +15 anos de experiência
+                                +17 anos de experiência
                             </span>
                         </div>
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
                                 <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Alunos satisfeitos</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">15+</div>
+                                <div className="text-2xl sm:text-3xl font-bold font-krub text-verde-escuro">17+</div>
                                 <div className="text-xs sm:text-sm font-dm-sans text-gray-600">Anos de experiência</div>
                             </div>
                             <div className="text-center">

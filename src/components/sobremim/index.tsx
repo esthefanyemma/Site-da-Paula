@@ -28,7 +28,7 @@ export default function SobreMim () {
                     <div className="space-y-8">
                         <div className="space-y-6">
                             <p className="text-xl lg:text-2xl font-dm-sans text-gray-700 leading-relaxed">
-                                Fundei minha instituição de inglês há mais de <span className="font-bold text-verde-escuro">15 anos</span>, 
+                                Fundei minha instituição de inglês há mais de <span className="font-bold text-verde-escuro">17 anos</span>, 
                                 e desde então venho desenvolvendo um trabalho <span className="font-bold text-verde-botao-trans">personalizado</span> 
                                 para cada aluno que passa por aqui.
                             </p>
@@ -45,7 +45,7 @@ export default function SobreMim () {
                                 <div className="text-sm font-dm-sans text-gray-600 uppercase tracking-wide">Alunos Formados</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-4xl font-bold font-krub text-verde-escuro mb-2">15+</div>
+                                <div className="text-4xl font-bold font-krub text-verde-escuro mb-2">17+</div>
                                 <div className="text-sm font-dm-sans text-gray-600 uppercase tracking-wide">Anos de Experiência</div>
                             </div>
                         </div>
